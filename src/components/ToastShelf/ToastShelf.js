@@ -6,10 +6,10 @@ import {ToastContext} from '../ToastProvider';
 
 
 function ToastShelf() {
-      const { toastList } = React.useContext(ToastContext);
+  const { toastList } = React.useContext(ToastContext);
 
   return (
-    <ol className={styles.wrapper}>
+    <ol className={styles.wrapper} role='region' aria-live='polite' aria-label='Notification' >
       {toastList.map((toast) => (
         <li
           className={styles.toastWrapper}
