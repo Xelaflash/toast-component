@@ -11,6 +11,7 @@ import VisuallyHidden from '../VisuallyHidden';
 
 import styles from './Toast.module.css';
 
+
 const ICONS_BY_VARIANT = {
   notice: Info,
   warning: AlertTriangle,
@@ -18,21 +19,16 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({ variant, message, isOpen, setIsOpen }) {
+function Toast({ id, variant, message, handleDismiss }) {
   const IconComponent = ICONS_BY_VARIANT[variant];
+
   return (
-    // todo change styles to use variant
     <div className={`${styles.toast} ${styles[variant]}`}>
       <div className={styles.iconContainer}>
         <IconComponent size={24} />
       </div>
       <p className={styles.content}>{message}</p>
-      <button
-        className={styles.closeButton}
-        onClick={() => {
-          setIsOpen(false);
-        }}
-      >
+      <button className={styles.closeButton} onClick={() => handleDismiss(id)}>
         <X size={24} />
         <VisuallyHidden>Dismiss message</VisuallyHidden>
       </button>
