@@ -1,3 +1,8 @@
+# Project II from [Josh W Comeau](https://www.joshwcomeau.com/)  [Joy of React](https://www.joyofreact.com/)
+
+**Made in April 2023**
+
+---
 # Toast Component Project
 
 ## Joy of React, Project II
