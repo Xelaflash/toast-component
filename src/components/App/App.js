@@ -2,30 +2,14 @@ import React from 'react';
 
 import ToastPlayground from '../ToastPlayground';
 import Footer from '../Footer';
-
-// export const ToastContext = React.createContext();
+import ToastProvider from '../ToastProvider';
 
 function App() {
-
-
-  // const value = {
-  //   VARIANT_OPTIONS,
-  //   variantType,
-  //   setVariantType,
-  //   message,
-  //   setMessage,
-  //   isOpen,
-  //   setIsOpen,
-  // }
-
-
   return (
-    // <ToastContext.Provider value={value}>
-    <>
-      <ToastPlayground />
-      <Footer />
-    </>
-    // </ToastContext.Provider>
+    <ToastProvider>
+        <ToastPlayground />
+        <Footer />
+    </ToastProvider>
   );
 }
 
