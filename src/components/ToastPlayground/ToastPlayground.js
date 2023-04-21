@@ -7,7 +7,7 @@ import styles from './ToastPlayground.module.css';
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
-  const [variantType, setVariantType] = React.useState('notice');
+  const [variantType, setVariantType] = React.useState(VARIANT_OPTIONS[0]);
   const [message, setMessage] = React.useState('');
 
 
@@ -28,9 +28,13 @@ function ToastPlayground() {
             Message
           </label>
           <div className={styles.inputWrapper}>
-            <textarea id="message" className={styles.messageInput} value={message} onChange={(event) => {
+            <textarea id="message"
+              className={styles.messageInput}
+              value={message}
+              onChange={(event) => {
               setMessage(event.target.value);
-            }} />
+              }}
+            />
           </div>
         </div>
 
