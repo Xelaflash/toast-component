@@ -23,9 +23,20 @@ function ToastProvider({ children }) {
       setToastlist(nextToastList);
     }
 
-  function dismissAllToast() {
-    setToastlist([]);
-  }
+  React.useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        setToastlist([]);
+      }
+    }
+    // add event listener for escape key keydown
+    window.addEventListener('keydown',handleKeyDown);
+
+    // remove event listener on cleanup
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <ToastContext.Provider
@@ -33,7 +44,6 @@ function ToastProvider({ children }) {
         toastList,
         createToast,
         dismissToast,
-        dismissAllToast,
       }}
     >
       {children}

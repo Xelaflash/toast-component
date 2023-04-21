@@ -7,31 +7,11 @@ import ToastShelf from '../ToastShelf/ToastShelf';
 import {ToastContext} from '../ToastProvider';
 
 function ToastPlayground() {
-  const { createToast, dismissAllToast } = React.useContext(ToastContext);
+  const { createToast } = React.useContext(ToastContext);
 
   const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
   const [variantType, setVariantType] = React.useState(VARIANT_OPTIONS[0]);
   const [message, setMessage] = React.useState('');
-
-
-  React.useEffect(() => {
-    function handleDismissAll(event) {
-        if (event.key === 'Escape') {
-          dismissAllToast();
-        }
-    }
-    // add event listener for escape key keydown
-    window.addEventListener('keydown', (event) => {
-      handleDismissAll(event);
-    });
-
-    // remove event listener on cleanup
-    return () => {
-      window.removeEventListener('keydown', (event) => {
-        handleDismissAll(event);
-      });
-    };
-  }, [dismissAllToast]);
 
   return (
     <div className={styles.wrapper}>
